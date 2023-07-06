@@ -4,7 +4,7 @@ import json
 url = 'http://project-2.csec.chatzi.org:8000/'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic JXgleCV4JXgleCV4JXM='
+    'Authorization': 'Basic JXgleCV4JXgleCV4ICAgLSAgICVz'
 
 }
 data = {
