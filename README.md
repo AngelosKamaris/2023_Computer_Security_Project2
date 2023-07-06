@@ -106,9 +106,19 @@ format not a string literal and no format arguments [-Wformat-security]
     άρα ο md5 password είναι ο: ef281a07091268a0d779cf489d00380c
    
 
-2. 
-3. 
-4. ...
+2. Στο δεύτερο ερώτημα παρατήρησα ότι παρόμοια με το πρώτο, καλούταν η συνάρτηση read_file, η οποία έπερνε 2 ορίσματα, το Line και το όνομα του αρχείου από το οποίο διάβαζε. ΑΣτο πρώτο όρισμα αποθηκεύονταν τα δεδομένα από το αρχείο από το οποίο έκανε fgets. Με αυτό τον τρόπο ήξερα ότι στο τέλος αυτής της συνάρτησης το κλειδί το οποίο ήταν στο αρχείο config/key, θα ήταν αποθηκευμένο μέσα στο stack. Επειδή όμως όταν εγώ έφτανα στην check_auth, στην οποία μπορούσα να κάνω την επίθεσή μου, ήξερα ότι το stack θα είχε γεμίσει με άλλες τιμές πριν από αυτήν, άρα δεν αρκούσε να δοκιμάσω με το χέρι τιμές. Πήγα επομένος στον local server μου και χρησιμοποίησα το πρόγραμμα bot.py, δίνοντάς του σαν όρισμα, το κλειδί, το οποίο στον local server το ήξερα. Αυτό μου επέστρεψε:
+
+found on attempt: 50
+base64 data: JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCAgIC0gICAlcw==
+
+decrypted: %x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x   -   %s
+
+και έβαλα το base64 string, στο attack2.py. Έτσι πήρα το κλειδί από τον global server το οποίο έχει τιμή c56b2fa8d1a21183a185f7c1e526a0b8 και το έβαλα στην encryption/main.c, η οποία χρησιμοποιεί τον κώδικα που κάνει decrypt τους κωδικούς στον global server. Έτσι έτρεξα την decrypt δίνοντας της το κλειδί και το encrypted password και μου γύρισε πίσω σε plaintext τον κωδικό ο οποίος ήταν: aCEDIsRateRe.
+
+!Αυτό το πρόβλημα θα μπορούσε να λυθεί και με padding oracle, Θα έπρεπε δηλαδή να βρω το μέγεθος του padding, στο τελευταίο block, και να το χρησιμοποιήσω για να βρω κομμάτι κομμάτι το plaintext από το τελευταίο, στο προτελευταίο, δοκιμάζοντας αν το byte είναι από 0 εως 255 και κάνοντας τα κατάλληλα xor, θα βρούμε το τελευταίο byte από το προηγούμενο block, εως ότου να φτάσουμε στο iv το οποίο δημιουργείται τυχαία επομένως θα πρέπει πάλι να το βρούμε, για να βρούμε το πρώτο κομμάτι του plaintext.
+  
+4. 
 5. ...
+6. ...
 
 ...
