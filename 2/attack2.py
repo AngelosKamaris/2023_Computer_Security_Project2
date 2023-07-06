@@ -5,7 +5,7 @@ import re
 url = 'http://project-2.csec.chatzi.org:8000/'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCAgIC0gICAlczox'
+    'Authorization': 'Basic JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCV4JXgleCAgIC0gICAlcw=='
 
 }
 data = {
