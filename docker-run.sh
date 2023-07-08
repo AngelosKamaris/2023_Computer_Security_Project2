@@ -1,4 +1,4 @@
 
 # my attack
 
-python3 -c "print('attack')"
+python3 executing_script/ex.py
