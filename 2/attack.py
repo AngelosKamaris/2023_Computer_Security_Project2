@@ -1,7 +1,7 @@
-from oracle import is_padding_ok, BLOCK_SIZE
+from oracle import is_padding_ok
 import binascii
 
-
+BLOCK_SIZE=16
 
 def attack( ciphertext ):
 	guessed_clear = b''
