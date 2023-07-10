@@ -3,6 +3,7 @@ FROM    ubuntu:latest
 # install packages
 RUN apt update
 RUN apt install -y python3 python3-pip
+RUN apt install -y curl
 
 #add local directory to container
 ADD . /root/
