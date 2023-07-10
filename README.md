@@ -1,4 +1,4 @@
-![εικόνα](https://github.com/chatziko-ys13/2023-project-2-psarotaverna-o-takis/assets/79763769/365d8b0e-26a0-48d5-b09c-4f6ef6d496a8)## 2023 Project 2
+## 2023 Project 2
 
 Ο στόχος σας είναι να επιτεθείτε στον server `project-2.csec.chatzi.org`.
 Γνωρίζετε ότι στο url http://project-2.csec.chatzi.org:8000
