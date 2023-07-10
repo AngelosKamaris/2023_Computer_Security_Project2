@@ -13,7 +13,6 @@ ADD . /root/
 
 # copy script inside container
 COPY docker-run.sh /root/
-COPY ex.py /root/
 #copy attack1 to container
 
 # install dependencies

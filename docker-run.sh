@@ -1,9 +1,6 @@
 
 # my attack
-# pip install -r requirements.txt
 python3 -c "print('PROJECT 2 PSAROTAVERNA O TAKIS RUNNING .......')"
-# python3 ex.py
-# ls
 chmod +x 1/attack.py
 python3 1/attack.py
 chmod +x 2/attack.py
