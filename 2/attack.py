@@ -43,7 +43,7 @@ def attack( ciphertext ):
 def test_the_attack():
     msg=binascii.unhexlify('8c6e2f34df08e2f879e61eeb9e8ba96f8d9e96d8033870f80127567d270d7d96')
     cracked=attack(msg)
-    print("cracked: "+cracked.decode())
+    print("plaintext password is: "+cracked.decode())
 
 if __name__ == '__main__':
     test_the_attack()
