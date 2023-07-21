@@ -92,6 +92,7 @@ Tasks:
 
 1. Απάντηση: ef281a07091268a0d779cf489d00380c
 
+
  Αφού ανοίξαμε την σελίδα στο ίντερνετ και κοιτάξαμε μήπως υπήρχε τίποτα στο περιεχόμενό της, αποφασίσαμε να δούμε τον κώδικα από το pico repository που μας δινόταν από την εργασία. Εκεί είδαμε ότι αν κάναμε ένα post με Aythorization Basic στον server, αυτός θα πήγαινε σε μια συνάρτηση η οποία λέγεται check_auth, η οποία δέχεται ένα string μετά την Basic της μορφής <username>:<encrypted-password> και ελέγχει αν ο χρήστης είναι σε μια λίστα χρηστών,και αν υπάρχει σώζει τον κωδικό του σε μια μεταβλητή που κρατάει τους md5 κωδικούς των χρηστών, αν αυτή η μεταβλητή παραμείνει άδεια σημαίνει οτι ο χρήστης δεν υπάρχει και εκτυπώνει το όνομα του χρήστη λέγοντας πως είναι invalid. Αλλιώς ελέγχει αν ο κωδικός είναι σωστός.
 
 Εμείς λοιπόν πήγαμε να κάνουμε make τον κώδικα του pico και μας βγάζει warning:
@@ -108,7 +109,7 @@ format not a string literal and no format arguments [-Wformat-security]
     άρα ο md5 password είναι ο: ef281a07091268a0d779cf489d00380c
    
 
-2.Απάντηση: aCEDIsRateRe
+2. Απάντηση: aCEDIsRateRe
   
 Στο δεύτερο ερώτημα εφαρμόζουμε το padding oracle attack που βρήκαμε εδώ, έχοντας κάνει κατάλληλες αλλαγές για να τρέχει στον server: https://github.com/TheCrowned/padding-oracle-attack.
 
@@ -120,6 +121,7 @@ format not a string literal and no format arguments [-Wformat-security]
 
 
 3. Απάντηση:
+
 
 ⠀⠀⠀  ⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀  ⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣦⣴⣶⣶⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -175,12 +177,19 @@ x/28wx $esp για να δούμε τι περιέχει ο buffer και πήρ
 !Η από πάνω επίθεση δοκιμάστικε και πέτυχε πρώτα στον τοπικό μας server στα linux03 της σχολής!
   
 
+
 4. Απάντηση:
+   
   00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+  
   00:01.3 Non-VGA unclassified device: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+  
   00:03.0 VGA compatible controller: Amazon.com, Inc. Device 1111
+  
   00:04.0 Non-Volatile memory controller: Amazon.com, Inc. Device 8061
+  
   00:05.0 Ethernet controller: Amazon.com, Inc. Elastic Network Adapter (ENA)
+  
 
   Όπως και η προηγούμενη επίθεση έτσι και αυτή χρειάστηκε buffer overflow. Σε αυτή την επίθεση όμως αντί να πηγαίνουμε στην send_file συνάρτηση πρέπει να βρούμε μια συνάρτηση που να μπορεί να τρέξει το lspci. Η συνάρτηση που αναζητούμε είναι η system(), της βιβλιοθήκης stdlib.h. Η system αν και δεν καλείτε στο ίδιο το πρόγραμμα, επειδή ανήκει στην βιβλιοθήκη stdlib.h, θα έχει διεύθυνση στο πρόγραμμά μας.
 
